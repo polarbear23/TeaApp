@@ -1,13 +1,29 @@
-import "./register.css"
+import '../../styles/register.css';
 
-const Register = () => {
-  return (
-    <form className="register-form">
-        <h1>Register:</h1>
-        <input type="email" />
-        <input type="password" />
-    </form>
-  )
+interface StateProps {
+  setShowRegisterForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default Register
+const Register = (props: StateProps) => {
+  const { setShowRegisterForm } = props;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    setShowRegisterForm(false);
+  };
+  return (
+    <div className="form-background">
+      <form className="register-form" onSubmit={handleSubmit}>
+        <h1>Register</h1>
+        <p>Register now to make your first purchase of tea!</p>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button className="button-submit-register pulse" type="submit">
+          Sign up
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Register;

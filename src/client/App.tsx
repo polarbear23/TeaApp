@@ -1,18 +1,30 @@
-import './App.css';
+import './styles/App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import Homepage from './pages/homepage/Homepage';
 import Register from './Components/globalForms/Register';
-import login from './Components/globalForms/Login';
+import Login from './Components/globalForms/Login';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
+  const [showLoginForm, setShowLoginForm] = useState(false);
+
   return (
-    <div className="App">
-      <Header />
-      <main className="form-main">
-        <Register />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div>
+        {showRegisterForm && <Register setShowRegisterForm={setShowRegisterForm} />}
+        {showLoginForm && <Login setShowLoginForm={setShowLoginForm} />}
+        <div className="App">
+          <Header setShowRegisterForm={setShowRegisterForm} setShowLoginForm={setShowLoginForm} />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
