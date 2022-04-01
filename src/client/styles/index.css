@@ -3,7 +3,8 @@
   --brown: #bc7b3b;
   --hover: #b86d22c0;
   --headercolor: rgba(188, 123, 59, 0.5);
-  --formbg: rgb(138, 214, 106, 0.8);
+  --formbg: rgb(138, 214, 106, 0.3);
+  --topbar: rgb(138, 214, 106, 1);
   --btncolor: white;
   --drkgreen: rgb(161, 210, 139);
   --tree: rgb(80, 150, 152);
