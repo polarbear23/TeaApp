@@ -2,8 +2,8 @@
   grid-area: header;
   display: grid;
   grid-template:
-    '. logo  navbar' 1fr/
-    0.1fr 0.2fr 0.7fr;
+    '. logo  navbar .' 1fr/
+    0.2fr 0.1fr 0.5fr 0.2fr;
   background-color: var(--drkgreen);
   position: sticky;
   z-index: 1;
@@ -12,10 +12,15 @@
   backdrop-filter: blur(6px);
 }
 
-.navbar-logo {
+.navbar-logo-container {
   grid-area: logo;
-  height: 50px;
-  width: 50px;
+  display: grid;
+  place-content: center;
+}
+
+.navbar-logo {
+  height: 75px;
+  width: 75px;
 }
 
 .navbar {
@@ -23,7 +28,7 @@
   display: grid;
   grid-template:
     'left . right' 1fr/
-    0.6fr 0.2fr 0.2fr;
+    0.6fr 0.2fr 0.3fr;
 }
 
 .navbar-list {
@@ -46,7 +51,32 @@
   font-variant: small-caps;
 }
 
-.navbar-item:hover {
+.navbar-item-cart {
+  display: grid;
+  position: relative;
+  cursor: pointer;
+  place-items: center;
+}
+
+.navbar-cart {
+  height: 55px;
+  fill: white;
+}
+
+.navbar-register-login-text {
+  font-size: 1.5rem;
+}
+
+.cart-number {
+  position: absolute;
+  color: green;
+  font-size: 1.5rem;
+  left: 45%;
+  top: 37%;
+}
+
+.navbar-item:hover,
+.navbar-item-cart:hover {
   background-color: var(--topbar);
   animation: pulseNav 1s;
   box-shadow: 0 0 0 1rem transparent;

@@ -19,9 +19,8 @@ const Header = (props: StateProps) => {
 
   return (
     <header className="header">
-      <div className="navbar-logo">
-        <img className="navbar-logo" src="/images/tea-18.gif" alt="logo" />
-        <img src="/images/nawa.png" alt="nawa logo" />
+      <div className="navbar-logo-container">
+        <img className="navbar-logo" src="/images/logo.png" alt="logo" />
       </div>
       <nav className="navbar">
         <ul className="navbar-list">
@@ -36,14 +35,17 @@ const Header = (props: StateProps) => {
           </Link>
         </ul>
         <ul className="navbar-register-login-cart">
-          <li className="navbar-item" onClick={handleClickRegister}>
+          <li className="navbar-item navbar-register-login-text" onClick={handleClickRegister}>
             Register
           </li>
-          <li className="navbar-item" onClick={handleClickLogin}>
+          <li className="navbar-item navbar-register-login-text" onClick={handleClickLogin}>
             Login
           </li>
-          <Link className="navbar-item" to={'/cart'}>
-            <li>Cart</li>
+          <Link className="navbar-item-cart" to={'/cart'}>
+            <li>
+              <img src="/images/cart.png" className="navbar-cart" alt="" />
+              <span className="cart-number">1</span>
+            </li>
           </Link>
         </ul>
       </nav>
