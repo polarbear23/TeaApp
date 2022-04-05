@@ -1,16 +1,15 @@
 const express = require('express');
-
-const { isLoggedIn } = require('../utils/auth.js');
+const passport = require('passport');
 
 const {
     authenticateUser,
     createUser,
-    getUserById,
+    getUserFromJWT,
 } = require('../controllers/user');
 
 const router = express.Router();
 
-router.get('/:id', isLoggedIn, getUserById)
+router.get('/', passport.authenticate('jwt', { session: false }), getUserFromJWT)
 
 router.post('/login', authenticateUser);
 

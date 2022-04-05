@@ -1,3 +1,4 @@
+import '../../styles/store.css';
 import StoreSearch from './components/StoreSearch';
 import StoreTileContainer from './components/StoreTileContainer';
 const Store = () => {

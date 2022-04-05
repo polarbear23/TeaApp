@@ -2,7 +2,7 @@ import React from 'react';
 import StoreTile from './StoreTile';
 const StoreTileContainer = () => {
   return (
-    <div>
+    <div className="store-tile-container">
       <StoreTile></StoreTile>
     </div>
   );
