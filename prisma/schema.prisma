@@ -70,8 +70,12 @@ model Product {
 
 model Tea {
     id            Int       @id @default(autoincrement())
+    imgFrontUrl   String
+    imgBackUrl    String
+    isOutOfStock  Boolean
     name          String
     description   String
+    type          String
     amountInStock Int
     origin        String
     brewTime      Int
