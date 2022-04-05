@@ -4,6 +4,7 @@ import Footer from './Components/Footer';
 import Homepage from './pages/homepage/Homepage';
 import Register from './Components/globalForms/Register';
 import Login from './Components/globalForms/Login';
+import Store from './pages/store/Store';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -20,6 +21,7 @@ function App() {
           <Header setShowRegisterForm={setShowRegisterForm} setShowLoginForm={setShowLoginForm} />
           <Routes>
             <Route path="/" element={<Homepage />} />
+            <Route path="/store" element={<Store />} />
           </Routes>
           <Footer />
         </div>

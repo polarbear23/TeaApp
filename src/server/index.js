@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const passport = require('passport');
 
-const { SERVER_STATUS } = require('./config.js');
+const SERVER_STATUS = require('./config.ts');
 
 const app = express();
 

@@ -1,11 +1,13 @@
 .header {
   grid-area: header;
   display: grid;
+  width: 100vw;
+  height: 100px;
   grid-template:
     '. logo  navbar .' 1fr/
     0.2fr 0.1fr 0.5fr 0.2fr;
   background-color: var(--drkgreen);
-  position: sticky;
+  position: fixed;
   z-index: 1;
   top: 0;
   color: white;
