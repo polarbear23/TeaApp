@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 interface TeaProps {
   tea: {
-    imgFrontUrl: string;
+    imgUrl: string;
     isOutOfStock: boolean;
     name: string;
     description: string;
@@ -19,7 +19,7 @@ const TeasGridItem = (props: TeaProps) => {
   return (
     <div className="tea-tile">
       <div className="tea-tile-inner">
-        <div className="tea-tile-img-container" style={{ backgroundImage: `url(${tea.imgFrontUrl})` }}>
+        <div className="tea-tile-img-container" style={{ backgroundImage: `url(${tea.imgUrl})` }}>
           <div className="tea-tile-name">
             <span>{tea.name}</span>
           </div>

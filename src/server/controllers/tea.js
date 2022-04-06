@@ -8,9 +8,10 @@ const getAllTea = async (req, res) => {
 }
 
 const init = async (req, res) => {
+    const { teas } = req.body;
     try {
         const createdTeas = await prisma.tea.createMany({
-            data: req.body
+            data: teas
         });
         return res.json({ data: createdTeas });
     }

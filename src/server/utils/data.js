@@ -1,5 +1,6 @@
-export const teas = [{
-    imgFrontUrl: "/images/teas/blackFront.jpg",
+
+const teas = [{
+    imgUrl: "/images/teas/blackFront.jpg",
     isOutOfStock: false,
     name: "Black Tea",
     description: "Black tea is a true tea that comes from the Camellia sinensis plant. Black tea leaves are allowed to fully oxidize before being processed and dried,the lown and gives the tea its signature flavor profile.",
@@ -10,7 +11,7 @@ export const teas = [{
     temperature: 85,
 },
 {
-    imgFrontUrl: "/images/teas/whiteFront.jpg",
+    imgUrl: "/images/teas/whiteFront.jpg",
     isOutOfStock: false,
     name: "White Tea",
     description: "White tea is made from the same plant as Black, Green and Oolong teas, but the leaves treated slightly differently. Unlike other varieties of tea, the youngest growth on the tea bush is picked for White teas – before the leaves have opened",
@@ -21,7 +22,7 @@ export const teas = [{
     temperature: 70,
 },
 {
-    imgFrontUrl: "/images/teas/greenFront.jpg",
+    imgUrl: "/images/teas/greenFront.jpg",
     isOutOfStock: false,
     name: "Green Tea",
     description: "Green tea is 'unoxidized' tea. The leaves are heated soon after picking in order to destroy the enzymes that cause oxidation. This type of processing preserves a high level of antioxidants, vitamins, and minerals.",
@@ -32,7 +33,7 @@ export const teas = [{
     temperature: 70,
 },
 {
-    imgFrontUrl: "/images/teas/oolongFront.jpeg",
+    imgUrl: "/images/teas/oolongFront.jpeg",
     isOutOfStock: false,
     name: "Oolong Tea",
     description: "Oolong tea is a traditional Chinese tea made from the partially oxidized leaves of the Camellia sinensis plant. Oolong is created when leaves are wilted in the sun and slightly bruised to create partial oxidation.",
@@ -43,7 +44,7 @@ export const teas = [{
     temperature: 90,
 },
 {
-    imgFrontUrl: "/images/teas/pu-erhFront.webp",
+    imgUrl: "/images/teas/pu-erhFront.webp",
     isOutOfStock: false,
     name: "Pu-erh Tea",
     description: "Pu-erh tea is a unique type of fermented tea that is traditionally made in the Yunnan Province of China. It is made from the leaves of a tree known as the “wild old tree,” which grows in the region.",
@@ -54,7 +55,7 @@ export const teas = [{
     temperature: 90,
 },
 {
-    imgFrontUrl: "/images/teas/borichaFront.jpg",
+    imgUrl: "/images/teas/borichaFront.jpg",
     isOutOfStock: false,
     name: "Boricha Barley Tea",
     description: "Boricha tea is a grain-infusion made with roasted barley, it is not a “true” tea. In regard to flavor, it tastes nutty, smoky, and slightly bitter. In Korea, the tea is consumed either hot or cold.",
@@ -65,7 +66,7 @@ export const teas = [{
     temperature: 100,
 },
 {
-    imgFrontUrl: "/images/teas/chagaFront.webp",
+    imgUrl: "/images/teas/chagaFront.webp",
     isOutOfStock: false,
     name: "Chaga Tea",
     description: "This particular drink originates in the Russian/Siberian region. Chaga mushrooms are a type of fungus that grows on birch trees, and making them into tea simply involves boiling a piece of the dried mushroom, it has a slightly bitter taste",
@@ -76,7 +77,7 @@ export const teas = [{
     temperature: 80,
 },
 {
-    imgFrontUrl: "/images/teas/chamomileFront.webp",
+    imgUrl: "/images/teas/chamomileFront.webp",
     isOutOfStock: false,
     name: "Chamomile Tea",
     description: "Chamomile tea comes from the edible flowers of the Matricaria chamomilla plant, otherwise known as chamomile. This drink has a reputation for being a good bedtime beverage. It is one of the most popular types of tea and it has a mild bitterness with a light, floral, and slightly sweet taste.",
@@ -87,7 +88,7 @@ export const teas = [{
     temperature: 70,
 },
 {
-    imgFrontUrl: "/images/teas/hibiscusFront.webp",
+    imgUrl: "/images/teas/hibiscusFront.webp",
     isOutOfStock: false,
     name: "Hibiscus Tea",
     description: "Hibiscus is a tea made from the dried petals of the roselle flower. Resembling the flower’s color, hibiscus tea is dark blood-red, and it has a tart flavor and a flowery smell. Overall, the tea is enjoyable and refreshing to drink, but some people may find it slightly sour.",
@@ -98,7 +99,7 @@ export const teas = [{
     temperature: 90,
 },
 {
-    imgFrontUrl: "/images/teas/honeybushFront.jpg",
+    imgUrl: "/images/teas/honeybushFront.jpg",
     isOutOfStock: false,
     name: "Honeybush Tea",
     description: "Honeybush is a fermented type of tea with a relatively strong and flavorful taste. Fermented leaves and stems of the honeybush shrub are used to brew honeybush tea. The tea is also naturally caffeine-free. Honeybush has a mildly sweet taste.",
@@ -108,6 +109,8 @@ export const teas = [{
     brewTime: 4,
     temperature: 93,
 },
-
-
 ]
+
+module.exports = {
+    teas
+}
