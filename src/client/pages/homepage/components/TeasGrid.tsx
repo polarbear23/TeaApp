@@ -31,7 +31,7 @@ const TeasGrid = () => {
     <div className="teas-grid">
       <TeasSearch />
       <div className="grid">
-        {teas.map((tea) => (
+        {teas.map((tea: Tea) => (
           <TeasGridItem tea={tea} />
         ))}
       </div>
