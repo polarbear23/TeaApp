@@ -18,11 +18,12 @@ const Carousel = () => {
   }, [activeItem]);
 
   const maxNumberOfCarouselItems: number = 5;
+  const minIndex: number = 0;
   const updateItem = (newItem: number): void => {
-    if (newItem < 0) {
+    if (newItem < minIndex) {
       newItem = maxNumberOfCarouselItems - 1;
     } else if (newItem >= maxNumberOfCarouselItems) {
-      newItem = 0;
+      newItem = minIndex;
     }
     setActiveItem(newItem);
   };

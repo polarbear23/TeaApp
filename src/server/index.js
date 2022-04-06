@@ -4,6 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const passport = require('passport');
+//import routers
+const userRouter = require('./routes/user');
 
 const SERVER_STATUS = require('./config.js');
 
@@ -26,6 +28,8 @@ if (process.env.NODE_ENV === 'development') {
     const morgan = require('morgan');
     app.use(morgan('dev'));
 }
+//routers
+app.use('/user', userRouter);
 
 app.get('*', (req, res) => {
     res.json({ ok: true });

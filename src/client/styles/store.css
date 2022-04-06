@@ -1,0 +1,14 @@
+.store {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+
+.store-main {
+  display: grid;
+  grid-template-rows: 0.2fr 1fr;
+}
+
+.store-tile-container {
+  display: grid;
+}
