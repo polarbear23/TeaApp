@@ -1,4 +1,4 @@
-export const HTTP_RESPONSE = {
+const HTTP_RESPONSE = {
   OK: { CODE: 200 },
   CREATED: { CODE: 201 },
   BAD_REQUEST: { MESSAGE: 'Bad Request', CODE: 400 },
@@ -8,8 +8,14 @@ export const HTTP_RESPONSE = {
   INTERNAL_ERROR: { MESSAGE: 'Internal server error', CODE: 500 },
 };
 
-export const SECRET = process.env.SECRET;
+const SECRET = process.env.SECRET;
 
-export const SERVER_STATUS = {
+const SERVER_STATUS = {
   STARTED: 'Server started on port',
 };
+
+exports.module = {
+  HTTP_RESPONSE,
+  SECRET,
+  SERVER_STATUS
+}

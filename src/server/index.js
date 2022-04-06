@@ -6,8 +6,10 @@ const path = require('path');
 const passport = require('passport');
 //import routers
 const userRouter = require('./routes/user');
+const teaRouter = require('./routes/tea');
 
-const SERVER_STATUS = require('./config.ts');
+
+const SERVER_STATUS = require('./config.js');
 
 const app = express();
 
@@ -30,6 +32,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 //routers
 app.use('/user', userRouter);
+app.use('/tea', teaRouter);
 
 app.get('*', (req, res) => {
     res.json({ ok: true });
