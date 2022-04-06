@@ -3,12 +3,9 @@ const { teas } = require('../src/server/utils/data')
 
 
 const init = async () => {
-
     const createdTeas = await prisma.tea.createMany({
         data: teas
     });
-
-
 }
 
 const seed = async () => {
