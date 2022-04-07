@@ -19,24 +19,22 @@ const createUser = async (req, res) => {
             data: {
                 email,
                 password,
-            },
-        });
-        await prisma.order.create({ //create an order when you create a user this will be the cart
-            data: {
-                isConfirmed: false,
-                user: {
-                    connect: {
-                        id: createdUser.id
+                order: {
+                    create: {
+                        isConfirmed: false,
                     }
-                },
-
+                }
+            },
+            include: {
+                order: true,
             }
         });
+
         if (createdUser) {
             delete createdUser.password; //delete password before creating token with id as we are returning both the created user object without the password and the token
 
             const token = `Bearer ${createToken(createdUser.id)}`;
-
+            console.log("createdUser", createdUser);
             return res.status(HTTP_RESPONSE.CREATED.CODE).json({ data: createdUser, token: token });
         }
     } catch (error) {
