@@ -14,7 +14,7 @@ const SERVER_STATUS = {
   STARTED: 'Server started on port',
 };
 
-exports.module = {
+module.exports = {
   HTTP_RESPONSE,
   SECRET,
   SERVER_STATUS
