@@ -2,7 +2,11 @@ const { prisma } = require('../utils/prisma');
 
 const getAllTea = async (req, res) => {
 
-    const allTea = await prisma.tea.findMany();
+    const allTea = await prisma.tea.findMany({
+        include: {
+            product: true
+        }
+    });
 
     return res.json({ data: allTea })
 }
