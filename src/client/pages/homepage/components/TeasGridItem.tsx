@@ -1,21 +1,25 @@
-import { Link } from 'react-router-dom';
+import { Tea } from './TeasGrid';
+import { API_URL } from '../../../config';
+import { postFormToServer } from '../../../utils/fetchPostForms';
 
-interface TeaProps {
-  tea: {
-    imgUrl: string;
-    isOutOfStock: boolean;
-    name: string;
-    description: string;
-    type: string;
-    amountInStock: number;
-    origin: string;
-    brewTime: number;
-    temperature: number;
-  };
+interface StateProps {
+  tea: Tea;
+  setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
+  cartQuantity: number;
 }
 
-const TeasGridItem = (props: TeaProps) => {
-  const { tea } = props;
+const TeasGridItem = (props: StateProps) => {
+  const { tea, setCartQuantity, cartQuantity } = props;
+  const { product } = tea;
+
+  const handleClick = async (): Promise<void> => {
+    const user = JSON.parse(localStorage.getItem('user') || '{}'); //if null then give empty object as string to parse
+    if (user === {}) return; // if there is no user then do nothing
+    const result = await postFormToServer(API_URL.ORDERPRODUCTS, { productId: product.id, orderId: user.order[user.order.length - 1].id });
+    setCartQuantity(cartQuantity + 1);
+    console.log('added to cart', result);
+  };
+
   return (
     <div className="tea-tile">
       <div className="tea-tile-inner">
@@ -32,9 +36,9 @@ const TeasGridItem = (props: TeaProps) => {
             <span>Origin: {tea.origin}</span>
             <span>Brew Time: {tea.brewTime} mins</span>
             <span>Temperature: {tea.temperature}C</span>
-            <Link to="/">
-              <button className="carousel-btn">Buy</button>
-            </Link>
+            <button className="carousel-btn" onClick={handleClick}>
+              Buy
+            </button>
           </div>
         </div>
       </div>
