@@ -21,7 +21,17 @@ const createUser = async (req, res) => {
                 password,
             },
         });
+        await prisma.order.create({ //create an order when you create a user this will be the cart
+            data: {
+                isConfirmed: false,
+                user: {
+                    connect: {
+                        id: createdUser.id
+                    }
+                },
 
+            }
+        });
         if (createdUser) {
             delete createdUser.password; //delete password before creating token with id as we are returning both the created user object without the password and the token
 

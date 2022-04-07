@@ -36,7 +36,7 @@ const createProducts = async (createdTeas) => {
 const seed = async () => {
     const createdTeas = await init();
     console.log("createdTeas", createdTeas);
-    const createdProducts = await createProducts(createdTeas);
+    await createProducts(createdTeas);
 }
 
 seed()
