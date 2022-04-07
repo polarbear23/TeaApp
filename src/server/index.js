@@ -7,7 +7,7 @@ const passport = require('passport');
 //import routers
 const userRouter = require('./routes/user');
 const teaRouter = require('./routes/tea');
-
+const orderRouter = require('./routes/order');
 
 const SERVER_STATUS = require('./config.js');
 
@@ -33,6 +33,7 @@ if (process.env.NODE_ENV === 'development') {
 //routers
 app.use('/user', userRouter);
 app.use('/tea', teaRouter);
+app.use('/order', orderRouter);
 
 app.get('*', (req, res) => {
     res.json({ ok: true });
