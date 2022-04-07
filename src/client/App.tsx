@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [cartQuantity, setCartQuantity] = useState<number>(0);
 
   return (
     <BrowserRouter>
@@ -18,9 +19,9 @@ function App() {
         {showRegisterForm && <Register setShowRegisterForm={setShowRegisterForm} />}
         {showLoginForm && <Login setShowLoginForm={setShowLoginForm} />}
         <div className="App">
-          <Header setShowRegisterForm={setShowRegisterForm} setShowLoginForm={setShowLoginForm} />
+          <Header setShowRegisterForm={setShowRegisterForm} setShowLoginForm={setShowLoginForm} cartQuantity={cartQuantity} />
           <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<Homepage setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} />} />
             <Route path="/store" element={<Store />} />
           </Routes>
           <Footer />

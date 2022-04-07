@@ -1,13 +1,15 @@
 import '../styles/header.css';
 import { Link } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import { API_URL } from '../config';
 interface StateProps {
   setShowRegisterForm: React.Dispatch<React.SetStateAction<boolean>>;
   setShowLoginForm: React.Dispatch<React.SetStateAction<boolean>>;
+  cartQuantity: number;
 }
 
 const Header = (props: StateProps) => {
-  const { setShowRegisterForm, setShowLoginForm } = props;
+  const { setShowRegisterForm, setShowLoginForm, cartQuantity } = props;
 
   const handleClickRegister = (): void => {
     setShowRegisterForm(true);
@@ -16,6 +18,14 @@ const Header = (props: StateProps) => {
   const handleClickLogin = (): void => {
     setShowLoginForm(true);
   };
+
+  useEffect(() => {
+    const getOrders = async () => {
+      const res = await fetch(API_URL.ORDER);
+      const result = res.json();
+    };
+    getOrders();
+  }, []);
 
   return (
     <header className="header">
@@ -44,7 +54,7 @@ const Header = (props: StateProps) => {
           <Link className="navbar-item-cart" to={'/cart'}>
             <li>
               <img src="/images/cart.png" className="navbar-cart" alt="" />
-              <span className="cart-number">1</span>
+              <span className="cart-number">{cartQuantity === 0 ? '' : cartQuantity}</span>
             </li>
           </Link>
         </ul>
