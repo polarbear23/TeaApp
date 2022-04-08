@@ -27,3 +27,9 @@ SECRET='yoursecretkey'
 ```command below to run app``` 
 
 ```npm run devstart```
+
+## Preview:
+
+[![Image from Gyazo](https://i.gyazo.com/cbe134fcca0c1ed2c1da8a5481479c7a.gif)](https://gyazo.com/cbe134fcca0c1ed2c1da8a5481479c7a)
+
+[![Image from Gyazo](https://i.gyazo.com/dafe03a0b63c2ce42e434918eed2f68f.gif)](https://gyazo.com/dafe03a0b63c2ce42e434918eed2f68f)
