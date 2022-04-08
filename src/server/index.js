@@ -9,7 +9,8 @@ const userRouter = require('./routes/user');
 const teaRouter = require('./routes/tea');
 const orderRouter = require('./routes/order');
 
-const SERVER_STATUS = require('./config.js');
+require('./utils/passport');
+const { SERVER_STATUS } = require('./config.js');
 
 const app = express();
 

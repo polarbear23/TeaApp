@@ -10,9 +10,9 @@ datasource db {
 
 model User {
     id        Int      @id @default(autoincrement())
-    email     String
+    email     String   @unique
     password  String
-    orders    Order[]
+    order     Order[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
@@ -39,13 +39,13 @@ model Order {
 }
 
 model OrderProducts {
-    orderId   Int
-    order     Order   @relation(fields: [orderId], references: [id])
-    productId Int
-    product   Product @relation(fields: [productId], references: [id])
-    quantity      Int
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    orderId     Int
+    order       Order   @relation(fields: [orderId], references: [id])
+    productId   Int
+    product     Product @relation(fields: [productId], references: [id])
+    quantity    Int
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
     @@id([orderId, productId])
 }
 
@@ -78,7 +78,7 @@ model Tea {
     origin        String
     brewTime      Int
     temperature   Int
-    product       Product[]
+    product       Product?
     createdAt     DateTime  @default(now())
     updatedAt     DateTime  @updatedAt
 }
