@@ -28,6 +28,8 @@ interface StateProps {
 
 const TeasGrid = (props: StateProps) => {
   const [teas, setTeas] = useState<Tea[]>([]);
+  const [filteredTeas, setFilteredTeas] = useState<Tea[]>([]);
+  const [searchInput, setSearchInput] = useState<string>('');
   const { setCartQuantity, cartQuantity } = props;
 
   useEffect(() => {
@@ -37,17 +39,26 @@ const TeasGrid = (props: StateProps) => {
       console.log('tea', result.data);
       setTeas(result.data);
     };
-
     fetchTea();
   }, []);
 
+  useEffect(() => {
+    const filterTeas = teas.filter((tea: Tea) => {
+      if (tea.name.toLowerCase().includes(searchInput.toLowerCase())) {
+        return tea;
+      }
+      return null;
+    });
+    setFilteredTeas(filterTeas);
+  }, [searchInput, teas]);
+
   return (
     <div className="teas-grid">
-      <TeasSearch />
+      <TeasSearch setSearchInput={setSearchInput} />
       <div className="grid">
-        {teas.map((tea: Tea, index: number) => (
-          <TeasGridItem key={index} tea={tea} setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} />
-        ))}
+        {filteredTeas.length
+          ? filteredTeas.map((tea: Tea, index: number) => <TeasGridItem key={index} tea={tea} setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} />)
+          : teas.map((tea: Tea, index: number) => <TeasGridItem key={index} tea={tea} setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} />)}
       </div>
     </div>
   );

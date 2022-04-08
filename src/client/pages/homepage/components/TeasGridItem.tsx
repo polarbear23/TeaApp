@@ -14,6 +14,7 @@ const TeasGridItem = (props: StateProps) => {
 
   const handleClick = async (): Promise<void> => {
     const user = JSON.parse(localStorage.getItem('user') || '{}'); //if null then give empty object as string to parse
+    console.log(user);
     if (user === {}) return; // if there is no user then do nothing
     const result = await postFormToServer(API_URL.ORDERPRODUCTS, { productId: product.id, orderId: user.order[user.order.length - 1].id });
     setCartQuantity(cartQuantity + 1);

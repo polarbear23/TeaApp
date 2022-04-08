@@ -57,6 +57,9 @@ const authenticateUser = async (req, res) => {
             where: {
                 email,
             },
+            include: {
+                order: true,
+            }
         });
 
         if (!selectedUser)
