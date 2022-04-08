@@ -6,9 +6,13 @@
 
 ```git clone https://github.com/polarbear23/TeaApp/```
 
+``` run command below: ```
+
+``` npm ci ```
+
 ```create an .env file with the following information```
 
-``` NODE_ENV="development"
+``` NODE_ENV="development" 
 
 DATABASE_URL="dburl?schema=prisma"
 
@@ -16,4 +20,10 @@ DATABASE_SHADOW="shadowdburl?schema=shadow"
 
 REACT_APP_SERVER_URL=http://localhost:4000
 
-SECRET='yoursecretkey' ```
+SECRET='yoursecretkey' 
+
+```
+
+```command below to run app``` 
+
+```npm run devstart```
