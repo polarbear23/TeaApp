@@ -6,6 +6,9 @@ const getAllOrders = async (req, res) => {
     const allUserOrders = await prisma.order.findMany({
         where: {
             userId: id
+        },
+        include: {
+            orderProducts: true,
         }
     });
     return res.json({ data: allUserOrders });
