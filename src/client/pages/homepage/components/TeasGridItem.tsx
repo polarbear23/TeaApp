@@ -1,24 +1,36 @@
 import { Tea } from './TeasGrid';
+import { Product } from '../../../App';
 import { API_URL } from '../../../config';
 import { postFormToServer } from '../../../utils/fetchPostForms';
 
 interface StateProps {
   tea: Tea;
   setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
+  cart: Product[];
   cartQuantity: number;
 }
 
 const TeasGridItem = (props: StateProps) => {
-  const { tea, setCartQuantity, cartQuantity } = props;
+  const { tea, setCartQuantity, cartQuantity, setCart, cart } = props;
   const { product } = tea;
 
   const handleClick = async (): Promise<void> => {
-    const user = JSON.parse(localStorage.getItem('user') || '{}'); //if null then give empty object as string to parse
-    console.log(user);
-    if (user === {}) return; // if there is no user then do nothing
-    const result = await postFormToServer(API_URL.ORDERPRODUCTS, { productId: product.id, orderId: user.order[user.order.length - 1].id });
+    if (localStorage.getItem('user') !== null) {
+      const user = JSON.parse(localStorage.getItem('user') || '');
+      const result = await postFormToServer(API_URL.ORDERPRODUCTS, { productId: product.id, orderId: user.order[user.order.length - 1].id });
+      const newCart: Product[] = [...cart, product];
+      setCart(newCart);
+      localStorage.setItem('cart', JSON.stringify(newCart));
+      setCartQuantity(cartQuantity + 1);
+      console.log('added to cart', result);
+    }
+    const newCart: Product[] = [...cart, product];
+    setCart(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
     setCartQuantity(cartQuantity + 1);
-    console.log('added to cart', result);
+    console.log('added to cart', product);
+    // if there is no user then do nothing
   };
 
   return (

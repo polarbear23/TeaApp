@@ -9,13 +9,19 @@ import Cart from './pages/cart/Cart';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+export interface Product {
+  id: number;
+  price: number;
+  teaId: number;
+}
+
 function App() {
   const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [cartQuantity, setCartQuantity] = useState<number>(0);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-  const [cart, setCart] = useState();
+  const [cart, setCart] = useState<Product[]>([]);
 
   return (
     <BrowserRouter>
@@ -34,9 +40,9 @@ function App() {
             setIsLoggedIn={setIsLoggedIn}
           />
           <Routes>
-            <Route path="/" element={<Homepage setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} />} />
-            <Route path="/store" element={<Store />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/" element={<Homepage setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} setCart={setCart} cart={cart} />} />
+            <Route path="/store" element={<Store setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} setCart={setCart} cart={cart} />} />
+            <Route path="/cart" element={<Cart setCart={setCart} cart={cart} />} />
           </Routes>
           <Footer />
         </div>

@@ -2,6 +2,7 @@ import TeasSearch from './TeasSearch';
 import TeasGridItem from './TeasGridItem';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../../config';
+import { Product } from '../../../App';
 
 export interface Tea {
   id: number;
@@ -24,13 +25,15 @@ export interface Tea {
 interface StateProps {
   setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
   cartQuantity: number;
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
+  cart: Product[];
 }
 
 const TeasGrid = (props: StateProps) => {
   const [teas, setTeas] = useState<Tea[]>([]);
   const [filteredTeas, setFilteredTeas] = useState<Tea[]>([]);
   const [searchInput, setSearchInput] = useState<string>('');
-  const { setCartQuantity, cartQuantity } = props;
+  const { setCartQuantity, cartQuantity, setCart, cart } = props;
 
   useEffect(() => {
     const fetchTea = async () => {
@@ -57,8 +60,12 @@ const TeasGrid = (props: StateProps) => {
       <TeasSearch setSearchInput={setSearchInput} />
       <div className="grid">
         {filteredTeas.length
-          ? filteredTeas.map((tea: Tea, index: number) => <TeasGridItem key={index} tea={tea} setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} />)
-          : teas.map((tea: Tea, index: number) => <TeasGridItem key={index} tea={tea} setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} />)}
+          ? filteredTeas.map((tea: Tea, index: number) => (
+              <TeasGridItem key={index} tea={tea} setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} setCart={setCart} cart={cart} />
+            ))
+          : teas.map((tea: Tea, index: number) => (
+              <TeasGridItem key={index} tea={tea} setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} setCart={setCart} cart={cart} />
+            ))}
       </div>
     </div>
   );

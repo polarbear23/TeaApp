@@ -8,7 +8,11 @@ const getAllOrders = async (req, res) => {
             userId: id
         },
         include: {
-            orderProducts: true,
+            orderProducts: {
+                include: {
+                    product: true
+                }
+            },
         }
     });
     return res.json({ data: allUserOrders });

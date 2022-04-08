@@ -1,6 +1,6 @@
 import '../styles/header.css';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { API_URL } from '../config';
 
 interface StateProps {
@@ -42,7 +42,7 @@ const Header = (props: StateProps) => {
 
   useEffect(() => {
     const getOrders = async () => {
-      const token = localStorage.getItem('token') ? localStorage.getItem('token') : null;
+      const token = localStorage.getItem('token');
       if (!token) return;
 
       const res = await fetch(API_URL.ORDER, {
