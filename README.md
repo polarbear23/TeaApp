@@ -1,6 +1,6 @@
 # Tea App
 
-### A Tea eCommerce Project for tea lovers
+### A Tea eCommerce Project for tea lovers built with React typescript frontend javascript backend with express and prisma ORM
 
 ## Installation:
 
