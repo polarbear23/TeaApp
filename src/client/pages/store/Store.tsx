@@ -1,6 +1,6 @@
 import '../../styles/store.css';
-import Teas from '../homepage/components/Teas';
 import StoreSearch from './components/StoreSearch';
+import StoreTileContainer from './components/StoreTileContainer';
 import { Product } from '../../App';
 
 interface StateProps {
@@ -17,7 +17,7 @@ const Store = (props: StateProps) => {
       <div className="store-leftbar">filters</div>
       <div className="store-main">
         <StoreSearch />
-        <Teas setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} setCart={setCart} cart={cart} />
+        <StoreTileContainer />
       </div>
     </main>
   );
