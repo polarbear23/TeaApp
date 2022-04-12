@@ -13,6 +13,7 @@
 
 .store-tile-container {
   display: grid;
+  gap: 5rem;
   grid-template-columns: repeat(auto-fill, minmax(400px, 100px));
 }
 
