@@ -6,8 +6,6 @@ const StoreTile = () => {
         <span>{}</span>
         <span>Type: {}</span>
         <span>Origin: {}</span>
-        <span>Brew Time: {} mins</span>
-        <span>Temperature: {}C</span>
         <span>Price:</span>
       </div>
     </div>
