@@ -13,14 +13,21 @@
 
 .store-tile-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 100px));
+  gap: 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 500px));
 }
 
 .store-item-tile {
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 10px, rgba(0, 0, 0, 0.12) 0px -10px 30px, rgba(0, 0, 0, 0.12) 0px 2px 2px, rgba(0, 0, 0, 0.17) 0px 2px 3px,
-    rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  width: 100%;
+  display: grid;
+  grid-template-rows: 0.7fr 0.3fr;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  width: 500px;
+  height: 500px;
+}
+
+.store-item-img-section {
   height: 100%;
+  background-size: cover;
 }
 
 .store-item-info {
@@ -33,8 +40,7 @@
   grid-template:
     '. search btn .' 1fr/
     1fr 0.1fr 0.1fr 1fr;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 10px, rgba(0, 0, 0, 0.12) 0px -10px 30px, rgba(0, 0, 0, 0.12) 0px 2px 2px, rgba(0, 0, 0, 0.17) 0px 2px 3px,
-    rgba(0, 0, 0, 0.09) 0px -1px 5px;
+  box-shadow: 0 4px 5px -2px var(--drkgreen);
 }
 
 .store-search-btn {
