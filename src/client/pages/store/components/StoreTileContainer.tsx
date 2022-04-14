@@ -1,6 +1,8 @@
 import StoreTile from './StoreTile';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../../config';
+import { Tea } from '../../homepage/components/TeasGrid';
+
 const StoreTileContainer = () => {
   const [teas, setTeas] = useState([]);
   useEffect(() => {
@@ -14,8 +16,8 @@ const StoreTileContainer = () => {
   }, []);
   return (
     <div className="store-tile-container">
-      {teas.map((tea) => (
-        <StoreTile></StoreTile>
+      {teas.map((tea: Tea) => (
+        <StoreTile tea={tea}></StoreTile>
       ))}
     </div>
   );
