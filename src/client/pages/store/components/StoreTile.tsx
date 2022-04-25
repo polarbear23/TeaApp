@@ -16,6 +16,7 @@ const StoreTile = (props: StateProps) => {
         <span>Type: {tea.type}</span>
         <span>Origin: {tea.origin}</span>
         <span>Price: {tea.product.price / 100}</span>
+        <button>Buy</button>
       </div>
     </div>
   );
