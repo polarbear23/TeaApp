@@ -34,6 +34,12 @@
   display: grid;
 }
 
+.store-tile-name {
+  background-color: rgba(180, 180, 170, 0.5);
+  font-size: 1.6rem;
+  color: rgb(31, 53, 61);
+}
+
 .store-search-form {
   display: grid;
   padding: 2rem;
