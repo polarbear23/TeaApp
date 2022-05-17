@@ -17,7 +17,7 @@ const Store = (props: StateProps) => {
       <div className="store-leftbar">filters</div>
       <div className="store-main">
         <StoreSearch />
-        <StoreTileContainer />
+        <StoreTileContainer setCartQuantity={setCartQuantity} cartQuantity={cartQuantity} setCart={setCart} cart={cart} />
       </div>
     </main>
   );
