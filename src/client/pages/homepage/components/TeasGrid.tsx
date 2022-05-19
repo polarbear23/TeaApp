@@ -2,6 +2,7 @@ import TeasSearch from './TeasSearch';
 import TeasGridItem from './TeasGridItem';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../../config';
+import { orderProducts } from '../../cart/Cart';
 import { Product } from '../../../App';
 
 export interface Tea {
@@ -25,8 +26,8 @@ export interface Tea {
 interface StateProps {
   setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
   cartQuantity: number;
-  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
-  cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<orderProducts[]>>;
+  cart: orderProducts[];
 }
 
 const TeasGrid = (props: StateProps) => {

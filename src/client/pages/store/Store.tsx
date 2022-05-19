@@ -1,13 +1,14 @@
 import '../../styles/store.css';
 import StoreSearch from './components/StoreSearch';
 import StoreTileContainer from './components/StoreTileContainer';
+import { orderProducts } from '../cart/Cart';
 import { Product } from '../../App';
 
 interface StateProps {
   setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
   cartQuantity: number;
-  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
-  cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<orderProducts[]>>;
+  cart: orderProducts[];
 }
 
 const Store = (props: StateProps) => {
