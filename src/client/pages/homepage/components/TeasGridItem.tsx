@@ -1,13 +1,14 @@
 import { Tea } from './TeasGrid';
 import { Product } from '../../../App';
+import { orderProducts } from '../../cart/Cart';
 import { API_URL } from '../../../config';
 import { postFormToServer } from '../../../utils/fetchPostForms';
 
 interface StateProps {
   tea: Tea;
   setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
-  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
-  cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<orderProducts[]>>;
+  cart: orderProducts[];
   cartQuantity: number;
 }
 
@@ -19,13 +20,13 @@ const TeasGridItem = (props: StateProps) => {
     if (localStorage.getItem('user') !== null) {
       const user = JSON.parse(localStorage.getItem('user') || '');
       const result = await postFormToServer(API_URL.ORDERPRODUCTS, { productId: product.id, orderId: user.order[user.order.length - 1].id });
-      const newCart: Product[] = [...cart, product];
+      const newCart: orderProducts[] = [...cart, result];
       setCart(newCart);
       localStorage.setItem('cart', JSON.stringify(newCart));
       setCartQuantity(cartQuantity + 1);
       console.log('added to cart', result);
     }
-    const newCart: Product[] = [...cart, product];
+    const newCart: orderProducts[] = [...cart, { productId: product.id, quantity: 1, product: product }];
     setCart(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
     setCartQuantity(cartQuantity + 1);

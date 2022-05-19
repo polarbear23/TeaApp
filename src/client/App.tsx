@@ -8,6 +8,7 @@ import Store from './pages/store/Store';
 import Cart from './pages/cart/Cart';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { orderProducts } from './pages/cart/Cart';
 
 export interface Product {
   id: number;
@@ -21,7 +22,7 @@ function App() {
   const [cartQuantity, setCartQuantity] = useState<number>(0);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-  const [cart, setCart] = useState<Product[]>([]);
+  const [cart, setCart] = useState<orderProducts[]>([]);
 
   return (
     <BrowserRouter>

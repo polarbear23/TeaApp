@@ -2,15 +2,14 @@ import React from 'react';
 import { Product } from '../../../App';
 
 interface StateProps {
-  product: {
-    price: number;
-  };
+  product: Product;
 }
 
 const CartItem = (props: StateProps) => {
   const { product } = props;
   return (
     <div>
+      <span>{product.id}</span>
       <span>{product.price}</span>
     </div>
   );

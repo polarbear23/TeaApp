@@ -2,13 +2,14 @@ import StoreTile from './StoreTile';
 import { useEffect, useState } from 'react';
 import { API_URL } from '../../../config';
 import { Tea } from '../../homepage/components/TeasGrid';
+import { orderProducts } from '../../cart/Cart';
 import { Product } from '../../../App';
 
 interface StateProps {
   setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
   cartQuantity: number;
-  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
-  cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<orderProducts[]>>;
+  cart: orderProducts[];
 }
 
 const StoreTileContainer = (props: StateProps) => {

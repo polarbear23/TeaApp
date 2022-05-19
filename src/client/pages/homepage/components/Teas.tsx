@@ -1,12 +1,13 @@
 import TeasGrid from './TeasGrid';
 import { Product } from '../../../App';
+import { orderProducts } from '../../cart/Cart';
 import '../../../styles/homepageTeas.css';
 
 interface StateProps {
   setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
   cartQuantity: number;
-  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
-  cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<orderProducts[]>>;
+  cart: orderProducts[];
 }
 
 const Teas = (props: StateProps) => {
